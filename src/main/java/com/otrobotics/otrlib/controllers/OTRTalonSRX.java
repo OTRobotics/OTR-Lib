@@ -1,6 +1,7 @@
 package com.otrobotics.otrlib.controllers;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class OTRTalonSRX extends TalonSRX implements OTRMotorController
 {
@@ -8,5 +9,17 @@ public class OTRTalonSRX extends TalonSRX implements OTRMotorController
     {
         super(deviceNumber);
     }
-    // TODO: Extend the Phoenix SRX Class @RICO
+    
+    public void setPercentOutput (double power) {
+        this.set(ControlMode.PercentOutput, power);
+    }
+
+    public void setPIDPosition (double position) {
+        this.set(ControlMode.Position, position);
+    }
+
+    public void setPIDVelocity (double velocity) {
+        this.set(ControlMode.Velocity, velocity);
+    }
+
 }

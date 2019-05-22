@@ -34,7 +34,7 @@ public class ManipulatorPIDObject {
     }
 
     public void setPIDSetpoint (double setpoint) {
-        // TODO: ADD CONTROL MODE SETPOINT METHODS IN OTR TALONSRX
+        
     }
 
 }
