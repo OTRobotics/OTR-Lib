@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "edu.wpi.first.GradleRIO" version "2019.4.1"
 }
 
 group 'com.otrobotics'
@@ -12,5 +13,12 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile wpi.deps.wpilib()
+    compile wpi.deps.vendor.java()
+    nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
+    testCompile 'junit:junit:4.12'
+}
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
