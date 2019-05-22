@@ -16,7 +16,7 @@ public abstract class OTRManipulator {
     protected abstract void init();
     protected abstract ManipulatorController getManipulatorControllerType();
 
-    protected abstract void setPIDSetpoint();
+    protected abstract void setPIDSetpoint(int can_device, double setpoint);
 
     protected ManipulatorPIDController getPID_Values () {
         return PID_controller;
