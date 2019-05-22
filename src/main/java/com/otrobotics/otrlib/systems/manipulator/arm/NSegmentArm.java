@@ -14,7 +14,7 @@ public class NSegmentArm extends OTRManipulator {
     }
 
     public void init () {
-
+        
     }
 
     public ManipulatorController getManipulatorControllerType () {
@@ -22,7 +22,7 @@ public class NSegmentArm extends OTRManipulator {
     }
 
     public void setPIDSetpoint (int can_device, double setpoint) {
-        
+        PID_motor_controllers.get(can_device).setPIDSetpoint(setpoint);
     }
 
 }
