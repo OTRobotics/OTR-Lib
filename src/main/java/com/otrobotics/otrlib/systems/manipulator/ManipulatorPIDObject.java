@@ -3,23 +3,30 @@ package com.otrobotics.otrlib.systems.manipulator;
 import com.otrobotics.otrlib.systems.manipulator.ManipulatorPIDController;
 import com.otrobotics.otrlib.systems.manipulator.ManipulatorController;
 
+import com.otrobotics.otrlib.sensors.OTRSensor;
+
 import com.otrobotics.otrlib.controllers.OTRMotorController;
 import com.otrobotics.otrlib.controllers.OTRTalonSRX;
 
 public class ManipulatorPIDObject {
 
     public int can_id;
+    public OTRSensor feedback_sensor;
     public OTRMotorController motor_controller;
     public ManipulatorPIDController PID_controller;
 
     public ManipulatorPIDObject (int can_id, ManipulatorPIDController PID_controller,
-                                 ManipulatorController manip_controller) {
+                                 OTRSensor feedback_sensor, ManipulatorController manip_controller) {
         this.can_id = can_id;
+        this.feedback_sensor = feedback_sensor;
         this.PID_controller = PID_controller;
 
         switch (manip_controller) {
             case SRX:
                 motor_controller = new OTRTalonSRX(can_id);
+                if (feedback_sensor != null) {
+                    motor_controller.configureFeedbackSensor(feedback_sensor);
+                }
                 break;
         }
 

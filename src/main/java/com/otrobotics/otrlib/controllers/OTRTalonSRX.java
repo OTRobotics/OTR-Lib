@@ -2,6 +2,9 @@ package com.otrobotics.otrlib.controllers;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+
+import com.otrobotics.otrlib.sensors.OTRSensor;
 
 public class OTRTalonSRX extends TalonSRX implements OTRMotorController
 {
@@ -20,6 +23,17 @@ public class OTRTalonSRX extends TalonSRX implements OTRMotorController
 
     public void setPIDVelocity (double velocity) {
         this.set(ControlMode.Velocity, velocity);
+    }
+
+    public void configureFeedbackSensor (OTRSensor feedback_sensor) {
+        switch (feedback_sensor.getSensorType()) {
+            case "QUAD_ENCODER":
+                this.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+                break;
+            case "POTENTIOMETER":
+                this.configSelectedFeedbackSensor(FeedbackDevice.Analog);
+                break;
+        }
     }
 
 }

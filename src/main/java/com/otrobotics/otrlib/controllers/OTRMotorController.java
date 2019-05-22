@@ -1,5 +1,7 @@
 package com.otrobotics.otrlib.controllers;
 
+import com.otrobotics.otrlib.sensors.OTRSensor;
+
 public interface OTRMotorController
 {
 
@@ -11,5 +13,11 @@ public interface OTRMotorController
     void setPercentOutput (double power);
     void setPIDPosition (double position);
     void setPIDVelocity (double velocity);
+
+    /*
+     *  The following methods are for feedback sensor configuration
+     */
+
+    void configureFeedbackSensor (OTRSensor feedback_sensor);
 
 }

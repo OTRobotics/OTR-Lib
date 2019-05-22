@@ -3,6 +3,7 @@ package com.otrobotics.otrlib.systems.manipulator;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.otrobotics.otrlib.sensors.OTRSensor;
 import com.otrobotics.otrlib.systems.OTRSubsystem;
 import com.otrobotics.otrlib.systems.manipulator.ManipulatorController;
 import com.otrobotics.otrlib.systems.manipulator.ManipulatorPIDController;
@@ -14,7 +15,7 @@ public abstract class OTRManipulator extends OTRSubsystem {
     protected ManipulatorController controller_type;
 
     public OTRManipulator (List<Integer> can_ids, List<ManipulatorPIDController> PID_controllers,
-                           ManipulatorController controller_type) {
+                           List<OTRSensor> feedback_sensors, ManipulatorController controller_type) {
         // Set the controller type (ManipualtorController)
         this.controller_type = controller_type;
 
@@ -22,7 +23,8 @@ public abstract class OTRManipulator extends OTRSubsystem {
         PID_motor_controllers = new ArrayList<ManipulatorPIDObject>();
         // Initialize each ManipulatorPIDObject
         can_ids.forEach(i -> this.PID_motor_controllers.add(new ManipulatorPIDObject
-                                                    (i, PID_controllers.get(i), controller_type)));
+                                                    (i, PID_controllers.get(i), 
+                                                    feedback_sensors.get(i), controller_type)));
     }
 
     protected abstract void init();
