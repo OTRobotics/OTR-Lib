@@ -34,7 +34,7 @@ public class ManipulatorPIDObject {
     }
 
     public void setPIDSetpoint (double setpoint) {
-        
+        motor_controller.setPIDPosition(setpoint);
     }
 
 }
