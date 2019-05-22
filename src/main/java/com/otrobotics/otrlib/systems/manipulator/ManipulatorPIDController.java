@@ -11,6 +11,7 @@ public class ManipulatorPIDController {
         this.kP = kP;
         this.kI = kI;
         this.kD = kD;
+        this.kF = 0;
     }
 
     public ManipulatorPIDController (double kP, double kI, double kD, double kF) {

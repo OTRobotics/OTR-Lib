@@ -36,4 +36,11 @@ public class OTRTalonSRX extends TalonSRX implements OTRMotorController
         }
     }
 
+    public void configurePIDTerms (double kP, double kI, double kD, double kF) {
+        this.config_kP(0, kP);
+        this.config_kI(0, kI);
+        this.config_kD(0, kD);
+        this.config_kF(0, kF);
+    }
+
 }

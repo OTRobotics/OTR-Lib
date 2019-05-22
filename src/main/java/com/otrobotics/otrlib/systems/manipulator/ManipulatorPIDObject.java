@@ -27,6 +27,10 @@ public class ManipulatorPIDObject {
                 if (feedback_sensor != null) {
                     motor_controller.configureFeedbackSensor(feedback_sensor);
                 }
+                motor_controller.configurePIDTerms(PID_controller.kP,
+                                                   PID_controller.kI, 
+                                                   PID_controller.kD, 
+                                                   PID_controller.kF);
                 break;
         }
 

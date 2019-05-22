@@ -15,9 +15,10 @@ public interface OTRMotorController
     void setPIDVelocity (double velocity);
 
     /*
-     *  The following methods are for feedback sensor configuration
+     *  The following methods are for feedback sensor and PID configuration
      */
 
     void configureFeedbackSensor (OTRSensor feedback_sensor);
+    void configurePIDTerms (double kP, double kI, double kD, double kF);
 
 }
