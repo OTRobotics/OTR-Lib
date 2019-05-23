@@ -1,6 +1,6 @@
 package com.otrobotics.otrlib.systems.manipulator;
 
-import com.otrobotics.otrlib.systems.manipulator.ManipulatorPIDController;
+import com.otrobotics.otrlib.systems.OTRPIDController;
 import com.otrobotics.otrlib.systems.manipulator.ManipulatorController;
 
 import com.otrobotics.otrlib.sensors.OTRSensor;
@@ -13,9 +13,9 @@ public class ManipulatorPIDObject {
     public int can_id;
     public OTRSensor feedback_sensor;
     public OTRMotorController motor_controller;
-    public ManipulatorPIDController PID_controller;
+    public OTRPIDController PID_controller;
 
-    public ManipulatorPIDObject (int can_id, ManipulatorPIDController PID_controller,
+    public ManipulatorPIDObject (int can_id, OTRPIDController PID_controller,
                                  OTRSensor feedback_sensor, ManipulatorController manip_controller) {
         this.can_id = can_id;
         this.feedback_sensor = feedback_sensor;
@@ -40,7 +40,7 @@ public class ManipulatorPIDObject {
         return can_id;
     }
 
-    public ManipulatorPIDController getPIDController () {
+    public OTRPIDController getPIDController () {
         return PID_controller;
     }
 
