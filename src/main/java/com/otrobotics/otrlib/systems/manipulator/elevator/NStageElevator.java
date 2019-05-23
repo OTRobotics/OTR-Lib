@@ -7,7 +7,6 @@ import com.otrobotics.otrlib.sensors.OTRSensor;
 import com.otrobotics.otrlib.systems.OTRPIDController;
 import com.otrobotics.otrlib.systems.manipulator.OTRManipulator;
 import com.otrobotics.otrlib.systems.manipulator.ManipulatorController;
-import com.otrobotics.otrlib.systems.manipulator.OTRManipulator;
 
 public class NStageElevator extends OTRManipulator {
 
