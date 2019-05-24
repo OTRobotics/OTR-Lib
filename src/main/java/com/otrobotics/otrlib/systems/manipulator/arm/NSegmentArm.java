@@ -6,6 +6,7 @@ import com.otrobotics.otrlib.sensors.OTRSensor;
 import com.otrobotics.otrlib.systems.OTRController;
 import com.otrobotics.otrlib.systems.OTRPIDController;
 import com.otrobotics.otrlib.systems.manipulator.OTRManipulator;
+import com.otrobotics.otrlib.systems.manipulator.ManipulatorPIDObject;
 
 public class NSegmentArm extends OTRManipulator {
 
@@ -23,7 +24,12 @@ public class NSegmentArm extends OTRManipulator {
     }
 
     public void setPIDSetpoint (int can_device, double setpoint) {
-        PID_motor_controllers.get(can_device).setPIDSetpoint(setpoint);
+        for (ManipulatorPIDObject p : PID_motor_controllers) {
+            if (p.getDeviceID() == can_device) {
+                p.setPIDSetpoint(setpoint);
+                break;
+            }
+        }
     }
 
 }
