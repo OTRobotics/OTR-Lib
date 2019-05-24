@@ -1,7 +1,7 @@
 package com.otrobotics.otrlib.systems;
 
 import com.otrobotics.otrlib.systems.OTRPIDController;
-import com.otrobotics.otrlib.systems.manipulator.ManipulatorController;
+import com.otrobotics.otrlib.systems.OTRController;
 
 import com.otrobotics.otrlib.sensors.OTRSensor;
 
@@ -10,13 +10,13 @@ import com.otrobotics.otrlib.controllers.OTRTalonSRX;
 
 public abstract class OTRPIDObject {
 
-    public int can_id;
-    public OTRSensor feedback_sensor;
-    public OTRMotorController motor_controller;
-    public OTRPIDController PID_controller;
+    protected int can_id;
+    protected OTRSensor feedback_sensor;
+    protected OTRMotorController motor_controller;
+    protected OTRPIDController PID_controller;
 
     public OTRPIDObject (int can_id, OTRPIDController PID_controller,
-                                 OTRSensor feedback_sensor, ManipulatorController manip_controller) {
+                                 OTRSensor feedback_sensor, OTRController manip_controller) {
         this.can_id = can_id;
         this.feedback_sensor = feedback_sensor;
         this.PID_controller = PID_controller;

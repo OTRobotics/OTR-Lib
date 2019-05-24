@@ -1,6 +1,6 @@
-package com.otrobotics.otrlib.systems.manipulator;
+package com.otrobotics.otrlib.systems;
 
-public enum ManipulatorController {
+public enum OTRController {
     SRXMASTER_SPXSLAVE,
     SRXMASTER_SRXSLAVE,
     SPX,
