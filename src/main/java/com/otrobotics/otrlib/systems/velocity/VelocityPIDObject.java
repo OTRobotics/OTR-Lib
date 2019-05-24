@@ -22,7 +22,7 @@ public class VelocityPIDObject extends OTRPIDObject {
     }
 
     public void setPIDSetpoint (double setpoint) {
-        motor_controller.setPIDPosition(setpoint);
+        motor_controller.setPIDVelocity(setpoint);
     }
 
 }

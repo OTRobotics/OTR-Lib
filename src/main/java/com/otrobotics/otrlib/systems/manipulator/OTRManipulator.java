@@ -33,7 +33,13 @@ public abstract class OTRManipulator extends OTRSubsystem {
     protected abstract void setPIDSetpoint(int can_device, double setpoint);
 
     protected OTRPIDController getPID_Values (int deviceIndex) {
-        return PID_motor_controllers.get(deviceIndex).getPIDController();
+        for (int i=0; i<PID_motor_controllers.size(); i++) {
+            if (PID_motor_controllers.get(i).getDeviceID() == deviceIndex) {
+                return PID_motor_controllers.get(i).getPIDController();
+            }
+        }
+        // This should never be reached
+        return null;
     }
 
 }
