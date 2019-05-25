@@ -27,9 +27,6 @@ public abstract class OTRManipulator extends OTRSubsystem {
                                                     feedback_sensors.get(i), controller_type)));
     }
 
-    protected abstract void init();
-    protected abstract OTRController getManipulatorControllerType();
-
     protected abstract void setPIDSetpoint(int can_device, double setpoint);
 
     protected OTRPIDController getPID_Values (int deviceIndex) {
