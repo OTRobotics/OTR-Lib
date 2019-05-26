@@ -8,9 +8,9 @@ import com.otrobotics.otrlib.systems.OTRPIDController;
 import com.otrobotics.otrlib.systems.velocity.OTRVelocity;
 import com.otrobotics.otrlib.systems.velocity.VelocityPIDObject;
 
-public class QuadEncoderShooter extends OTRVelocity {
+public class AnySensorShooter extends OTRVelocity {
 
-    public QuadEncoderShooter (List<Integer> can_ids, List<OTRPIDController> PID_controllers, 
+    public AnySensorShooter (List<Integer> can_ids, List<OTRPIDController> PID_controllers, 
     List<OTRSensor> feedback_sensors, OTRController controller_type) {
         super(can_ids, PID_controllers, feedback_sensors, controller_type);
     }
