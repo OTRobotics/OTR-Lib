@@ -10,10 +10,10 @@ import com.otrobotics.otrlib.controllers.OTRTalonSRX;
 
 public abstract class OTRPIDObject {
 
-    protected int can_id;
-    protected OTRSensor feedback_sensor;
-    protected OTRMotorController motor_controller;
-    protected OTRPIDController PID_controller;
+    public int can_id;
+    public OTRSensor feedback_sensor;
+    public OTRMotorController motor_controller;
+    public OTRPIDController PID_controller;
 
     public OTRPIDObject (int can_id, OTRPIDController PID_controller,
                                  OTRSensor feedback_sensor, OTRController manip_controller) {
