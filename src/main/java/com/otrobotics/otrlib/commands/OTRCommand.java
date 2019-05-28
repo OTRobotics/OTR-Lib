@@ -1,5 +1,28 @@
 package com.otrobotics.otrlib.commands;
 
-public abstract class OTRCommand {
+import com.otrobotics.otrlib.systems.OTRSubsystem;
+
+import edu.wpi.first.wpilibj.command.Command;
+
+public abstract class OTRCommand extends Command {
     
+    protected OTRSubsystem subsystem;
+    protected int[] can_ids;
+    protected double[] setpoints;
+
+    // Each index element at can_ids corresponds to their counterpart in setpoints (i.e., can_ids[i] -> setpoints[i])
+    public OTRCommand (OTRSubsystem subsystem, int[] can_ids, double[] setpoints) {
+        this.subsystem = subsystem;
+        this.can_ids = can_ids;
+        this.setpoints = setpoints;
+    }
+
+    // Overrided initialize method
+    protected void initialize () {
+        for (int i=0; i<can_ids.length; i++) {
+            subsystem.setPIDSetpoint(can_ids[i], setpoints[i]);
+        }
+    }   
+
+
 }

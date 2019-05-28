@@ -27,8 +27,6 @@ public abstract class OTRManipulator extends OTRSubsystem {
                                                     feedback_sensors.get(i), controller_type)));
     }
 
-    protected abstract void setPIDSetpoint(int can_device, double setpoint);
-
     protected OTRPIDController getPID_Values (int deviceIndex) {
         for (int i=0; i<PID_motor_controllers.size(); i++) {
             if (PID_motor_controllers.get(i).getDeviceID() == deviceIndex) {
