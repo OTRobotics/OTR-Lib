@@ -20,5 +20,6 @@ public interface OTRMotorController
 
     void configureFeedbackSensor (OTRSensor feedback_sensor);
     void configurePIDTerms (double kP, double kI, double kD, double kF);
+    double getPIDPosition ();
 
 }

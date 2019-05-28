@@ -43,4 +43,8 @@ public class OTRTalonSRX extends TalonSRX implements OTRMotorController
         this.config_kF(0, kF);
     }
 
+    public double getPIDPosition () {
+        return this.getSelectedSensorPosition(0);
+    }
+
 }
