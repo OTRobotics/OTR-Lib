@@ -10,6 +10,9 @@ public abstract class OTRCommand extends Command {
     protected int[] can_ids;
     protected double[] setpoints;
 
+    // Blank constructor stub (SHOULD NEVER BE USED!!!)
+    public OTRCommand () {}
+
     // Each index element at can_ids corresponds to their counterpart in setpoints (i.e., can_ids[i] -> setpoints[i])
     public OTRCommand (OTRSubsystem subsystem, int[] can_ids, double[] setpoints) {
         this.subsystem = subsystem;
