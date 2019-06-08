@@ -1,7 +1,5 @@
 package com.otrobotics.otrlib.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import com.otrobotics.otrlib.commands.OTRCommand;
 import com.otrobotics.otrlib.systems.OTRSubsystem;
 import com.otrobotics.otrlib.systems.manipulator.arm.NSegmentArm;

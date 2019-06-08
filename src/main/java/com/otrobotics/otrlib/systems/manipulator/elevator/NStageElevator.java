@@ -33,4 +33,14 @@ public class NStageElevator extends OTRManipulator {
         }
     }
 
+    public double getStageHeight (int can_device) {
+        for (ManipulatorPIDObject p : PID_motor_controllers) {
+            if (p.getDeviceID() == can_device) {
+                return p.motor_controller.getPIDPosition();
+            }
+        }
+        // This should never be reached
+        return 0;
+    }
+
 }
